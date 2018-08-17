@@ -1,0 +1,22 @@
+ <div class="row">
+ <title>
+    Bill Records
+</title>
+
+<h2>Records</h2>
+
+<table>
+    <tr>
+        <th>Bill</th>
+        <th>Time</th>
+        <th>Price</th>
+    </tr>
+    {{#each records}}
+    <tr>
+        <td>{{billtype}}</td>
+        <td>{{time}}</td>
+        <td>{{cost}}</td>
+    </tr>
+    {{/each}}
+</table> 
+</div>

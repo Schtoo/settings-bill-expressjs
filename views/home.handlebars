@@ -1,0 +1,57 @@
+<div class='container'>
+  <div class="row">
+    <div class="six columns">
+    <form action="/action" method="post">
+      <h5>Bill type</h5>
+      <label class="">
+        <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="call">
+        <span class="label-body">Call</span>
+      </label>
+      <label class="">
+        <input type="radio" name="billItemTypeWithSettings" class="billItemTypeWithSettings" value="sms">
+        <span class="label-body">SMS</span>
+      </label>
+      <button class="button-primary" type="submit" >Add</button>
+    </form>
+    <h5>Totals</h5>
+    <table>
+      <tr>
+        <td>
+          <a href="/actions/call">Call total</a>
+        </td>
+        <td>R
+          <span class="callTotalSettings">{{costsTotal.callCost}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/actions/sms">SMS total</a>
+        </td>
+        <td>R
+          <span class="smsTotalSettings">{{costsTotal.smsCost}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/actions">Total</a>
+        </td>
+        <td> R
+          <span class="totalSettings {{costsTotal.screen}}">{{costsTotal.total}}</span>
+        </td>
+      </tr>
+    </table>
+    </div>
+    <form class="" action="/settings" method="post">
+      <h5>Settings</h5>
+      <label>Call cost</label>
+      <input type="number" step="0.1" name="callCost" placeholder="callCost" value="{{costs.call}}"></input>
+      <label>SMS cost</label>
+      <input type="number" step="0.1" name="smsCost" placeholder="smsCost" value="{{costs.sms}}"></input>
+      <label>Warning level</label>
+      <input type="number" step="0.1" name="warningValue" placeholder="warning" value="{{costs.warning}}"></input>
+      <label>Critical level</label> 
+      <input type="number" step="0.1" name="criticalValue" placeholder="critical" value="{{costs.critical}}"></input>
+      <button class="button-primary updateSettings" type="submit" name="button">Update settings</button>
+    </form>
+  </div>
+</div>
