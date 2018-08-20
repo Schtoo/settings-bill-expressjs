@@ -1,22 +1,25 @@
-const assert = require('assert').assert;
-const billSettings = require('./settingsFactory');
-const Settings = billSettings();
+let assert = require('assert');
+
+const billSettings = require('../settingsFactory.js');
 
 describe('Settings Bill', function () {
     it('should give you the call total', function () {
-        var settings = Settings();
-        settings.UpdateValues(3.00);
-        settings.WhichType('call');
-        settings.WhichType('call');
-        settings.WhichType('call');
-        settings.WhichType('call');
+        let Settings = billSettings();
+        Settings.UpdateCalls(3.00);
+        Settings.UpdateCritical(5.50);
+        Settings.WhichType('call');
+        Settings.WhichType('call');
+        Settings.WhichType('call');
+        Settings.WhichType('call');
 
-        assert.equal(settings.Calls(), 12.00);
-        assert.equal(settings.BothEqual(), 12.00);
+        console.log(Settings.Calls());
+        assert.equal(Settings.Calls(), 12.00);
+        assert.equal(Settings.BothEqual(), 12.00);
     });
     it('should return the sms total', function () {
-        var total4Sms = Settings();
-        total4Sms.UpdateValues(3.00, 1.50);
+        var total4Sms = billSettings();
+        total4Sms.UpdatingSms(1.50);
+        total4Sms.UpdateCritical(6.00);
         total4Sms.WhichType('sms');
         total4Sms.WhichType('sms');
         total4Sms.WhichType('sms');
@@ -26,15 +29,18 @@ describe('Settings Bill', function () {
         assert.equal(total4Sms.BothEqual(), 6.00);
     });
     it('should return the warning level', function () {
-        var warningLevelSetting = Settings();
-        warningLevelSetting.UpdateAlerts(30.00);
+        var warningLevelSetting = billSettings();
+        warningLevelSetting.UpdateWarning(30.00);
+        warningLevelSetting.UpdateCritical(50.00);
         warningLevelSetting.totalAlert('warning');
+
         assert.equal(warningLevelSetting.screenBehaviour(), 30.00);
     });
     it('should return the critical level', function () {
-        var criticalLevelSetting = Settings();
-        criticalLevelSetting.UpdateAlerts(30.00, 50.00);
+        var criticalLevelSetting = billSettings();
+        criticalLevelSetting.UpdateCritical(50.00);
         criticalLevelSetting.totalAlert('danger');
+
         assert.equal(criticalLevelSetting.screenAlert(), 50.00);
     });
 });

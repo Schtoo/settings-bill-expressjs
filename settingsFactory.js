@@ -1,4 +1,4 @@
-module.exports = function settingsFactory () {
+module.exports = function () {
     let callCost = 0;
     let smsCost = 0;
     let callTotal = 0;
@@ -10,26 +10,25 @@ module.exports = function settingsFactory () {
 
     // this checks which radio button is selected
     function WhichType (checkedBill) {
-        if (totals >= criticalValue) {
-            return;
+        if (totals < criticalValue) {
+            let bill = {
+                billtype: checkedBill,
+                time: new Date()
+            };
+    
+            if (checkedBill === 'call') {
+                callTotal += callCost;
+                bill.cost = callCost.toFixed(2);
+            }
+            if (checkedBill === 'sms') {
+                smsTotal += smsCost;
+                bill.cost = smsCost.toFixed(2);
+            }
+    
+            billRecords.unshift(
+                bill
+            );
         }
-        let bill = {
-            billtype: checkedBill,
-            time: new Date()
-        };
-
-        if (checkedBill === 'call') {
-            callTotal += callCost;
-            bill.cost = callCost.toFixed(2);
-        }
-        if (checkedBill === 'sms') {
-            smsTotal += smsCost;
-            bill.cost = smsCost.toFixed(2);
-        }
-
-        billRecords.unshift(
-            bill
-        );
     }
 
     function recordsList () {
@@ -106,6 +105,7 @@ module.exports = function settingsFactory () {
         return totals.toFixed(2);
     }
 
+    // All the screen behaviour here
     function screenBehaviour () {
         return warningValue.toFixed(2);
     }
