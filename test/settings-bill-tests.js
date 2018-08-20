@@ -5,6 +5,7 @@ const billSettings = require('../settingsFactory.js');
 describe('Settings Bill', function () {
     it('should give you the call total', function () {
         let Settings = billSettings();
+        
         Settings.UpdateCalls(3.00);
         Settings.UpdateCritical(5.50);
         Settings.WhichType('call');
@@ -18,6 +19,7 @@ describe('Settings Bill', function () {
     });
     it('should return the sms total', function () {
         var total4Sms = billSettings();
+
         total4Sms.UpdatingSms(1.50);
         total4Sms.UpdateCritical(6.00);
         total4Sms.WhichType('sms');
@@ -30,6 +32,7 @@ describe('Settings Bill', function () {
     });
     it('should return the warning level', function () {
         var warningLevelSetting = billSettings();
+
         warningLevelSetting.UpdateWarning(30.00);
         warningLevelSetting.UpdateCritical(50.00);
         warningLevelSetting.totalAlert('warning');
@@ -38,6 +41,7 @@ describe('Settings Bill', function () {
     });
     it('should return the critical level', function () {
         var criticalLevelSetting = billSettings();
+
         criticalLevelSetting.UpdateCritical(50.00);
         criticalLevelSetting.totalAlert('danger');
 
