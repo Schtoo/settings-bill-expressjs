@@ -92,13 +92,14 @@ module.exports = function () {
     }
 
     function resetBtn () {
-        callCost = 0.00;
-        smsCost = 0.00;
-        callTotal = 0.00;
-        smsTotal = 0.00;
-        warningValue = 0.00;
-        criticalValue = 0.00;
-        totals = 0.00;
+        callCost = 0;
+        smsCost = 0;
+        callTotal = 0;
+        smsTotal = 0;
+        warningValue = 0;
+        criticalValue = 0;
+        totals = 0;
+        billRecords = [];
     }
 
     // These are all the totals

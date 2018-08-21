@@ -91,6 +91,7 @@ app.post('/reset', function (req, res) {
     let resertB = {
         reset: settingsInstance.resetBtn()
     };
+    
     res.render('home', {
         resertB
     });

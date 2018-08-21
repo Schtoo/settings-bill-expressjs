@@ -47,13 +47,13 @@
     <form class="" action="/settings" method="post">
       <h5>Settings</h5>
       <label>Call cost</label>
-      <input type="number" step="0.1" name="callCost" placeholder="callCost" value="{{costs.call}}"></input>
+      <input type="number" step="0.01" name="callCost" placeholder="callCost" value="{{costs.call}}"></input>
       <label>SMS cost</label>
-      <input type="number" step="0.1" name="smsCost" placeholder="smsCost" value="{{costs.sms}}"></input>
+      <input type="number" step="0.01" name="smsCost" placeholder="smsCost" value="{{costs.sms}}"></input>
       <label>Warning level</label>
-      <input type="number" step="0.1" name="warningValue" placeholder="warning" value="{{costs.warning}}"></input>
+      <input type="number" step="0.01" name="warningValue" placeholder="warning" value="{{costs.warning}}"></input>
       <label>Critical level</label> 
-      <input type="number" step="0.1" name="criticalValue" placeholder="critical" value="{{costs.critical}}"></input>
+      <input type="number" step="0.01" name="criticalValue" placeholder="critical" value="{{costs.critical}}"></input>
       <label class="">
       <button class="button-primary updateSettings" type="submit" name="button">Update settings</button>
       </label>
