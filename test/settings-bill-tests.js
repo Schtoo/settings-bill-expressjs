@@ -5,7 +5,7 @@ const billSettings = require('../settingsFactory.js');
 describe('Settings Bill', function () {
     it('should give you the call total', function () {
         let Settings = billSettings();
-        
+
         Settings.UpdateCalls(3.00);
         Settings.UpdateCritical(5.50);
         Settings.WhichType('call');
@@ -13,7 +13,7 @@ describe('Settings Bill', function () {
         Settings.WhichType('call');
         Settings.WhichType('call');
 
-        console.log(Settings.Calls());
+       // console.log(Settings.Calls());
         assert.equal(Settings.Calls(), 12.00);
         assert.equal(Settings.BothEqual(), 12.00);
     });

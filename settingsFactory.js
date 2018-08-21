@@ -15,7 +15,7 @@ module.exports = function () {
                 billtype: checkedBill,
                 time: new Date()
             };
-    
+
             if (checkedBill === 'call') {
                 callTotal += callCost;
                 bill.cost = callCost.toFixed(2);
@@ -24,7 +24,7 @@ module.exports = function () {
                 smsTotal += smsCost;
                 bill.cost = smsCost.toFixed(2);
             }
-    
+
             billRecords.unshift(
                 bill
             );
@@ -91,6 +91,16 @@ module.exports = function () {
         }
     }
 
+    function resetBtn () {
+        callCost = 0;
+        smsCost = 0;
+        callTotal = 0;
+        smsTotal = 0;
+        warningValue = 0;
+        criticalValue = 0;
+        totals = 0;
+    }
+
     // These are all the totals
     function Calls () {
         return callTotal.toFixed(2);
@@ -116,6 +126,7 @@ module.exports = function () {
     return {
         WhichType,
         recordsList,
+        resetBtn,
         Calls,
         Sms,
         BothEqual,

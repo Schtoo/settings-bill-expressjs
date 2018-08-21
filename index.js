@@ -87,6 +87,14 @@ app.post('/action', function (req, res) {
     });
 });
 
+app.post('/reset', function (req, res) {
+    let resertB = {
+        reset: settingsInstance.resetBtn()
+    };
+    res.render('home', {
+        resertB
+    });
+});
 app.get('/actions', function (req, res) {
     res.render('records', {
         records: settingsInstance.recordsList()
