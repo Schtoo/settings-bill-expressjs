@@ -10,7 +10,7 @@ module.exports = function () {
 
     // this checks which radio button is selected
     function WhichType (checkedBill) {
-        if (totals < criticalValue) {
+        if (totals <= criticalValue) {
             let bill = {
                 billtype: checkedBill,
                 time: new Date()
@@ -84,21 +84,21 @@ module.exports = function () {
     }
 
     function totalAlert () {
-        if (totals >= criticalValue) {
+        if (totals > criticalValue) {
             return 'danger';
-        } else if (totals >= warningValue) {
+        } else if (totals > warningValue) {
             return 'warning';
         }
     }
 
     function resetBtn () {
-        callCost = 0;
-        smsCost = 0;
-        callTotal = 0;
-        smsTotal = 0;
-        warningValue = 0;
-        criticalValue = 0;
-        totals = 0;
+        callCost = 0.00;
+        smsCost = 0.00;
+        callTotal = 0.00;
+        smsTotal = 0.00;
+        warningValue = 0.00;
+        criticalValue = 0.00;
+        totals = 0.00;
     }
 
     // These are all the totals
